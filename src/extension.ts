@@ -43,7 +43,7 @@ class VerilogDocumentDifinitionProvider implements DefinitionProvider {
             for (const ctag of CtagsSymbol.ctags){
                 const currentWord = document.getText(wordRange);
 
-                if(currentWord === ctag.name){
+                if(currentWord === ctag.name && ctag.uri.fsPath !== document.uri.fsPath){
                     definitions.push({
                         targetUri: ctag.uri,
                         targetRange: ctag.range,
